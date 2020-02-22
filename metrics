@@ -1,0 +1,8 @@
+Most important ones:
+Frequency of deployments: EX: deployments per month
+MTTR: Mean time to recover/repair/resolve: 
+MTTD: Mean time to discover (problems): EX: slow page loads, ELB unreachable, server memory...
+System availability: 99% its a problem
+Service Performance: EX: time to load pages
+Customer complains: what kind of tickets they report, etc
+Lead time: from feature request to feature release
