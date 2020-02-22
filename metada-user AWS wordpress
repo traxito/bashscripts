@@ -1,0 +1,26 @@
+#script para instalar todo lo necesario para lanzar un wordpress en un EC2 de AWS
+#!bin/bash
+yum update -y
+yum install -y httpd php mysql-server php-mysqlnd
+#sin versiones estrictas
+service httpd start
+chkconfig httpd on
+service mysql start
+chkconfig mysql on
+groupadd www
+usermod -aG www ec2-user
+chown -R root:www /var/www
+chmod 2775 /var/www
+
+cd /var/www/html
+wget https://wordpress.org/latest.tar.gz
+tar xzf latest.tar.gz
+mv wordpress/* .
+rm -rf latest.tar.gz wordpress
+
+mysql -e "create database wordpress";
+mysql -e "grant all on wordpress.* to 'wordpress'@'localost' identified by 'wordpress'"
+
+chown -R apache:www /var/www
+find /var/www -type d -exec chmod 2775 {} +
+find /var/www -type f -exec chmod 0774 {} +
