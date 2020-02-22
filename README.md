@@ -6,3 +6,5 @@ A series of bash scripts to make DevOps users life easier
 * Docker install: a guide to istall Docker and its components on Linux
 
 * Create metada-user AWS wordpress
+
+* Metrics: most important ones
